@@ -1,6 +1,5 @@
-
-
 {% liquid
+  assign header_menu_block = section.blocks | where: 'type', '_header-menu' | first
   assign order = 'logo,menu,localization,search,drawer_search,actions'
 
   if shop.customer_accounts_enabled
@@ -52,11 +51,11 @@
   endcapture
 
   capture drawer_menu
-    content_for 'block', type: '_header-menu', id: 'header-menu', variant: 'mobile'
+    render 'header-menu-renderer', block: header_menu_block, variant: 'mobile'
   endcapture
 
   capture navigation_bar
-    content_for 'block', type: '_header-menu', id: 'header-menu', variant: 'navigation_bar', transparent: transparent
+    render 'header-menu-renderer', block: header_menu_block, variant: 'navigation_bar', transparent: transparent
   endcapture
 
   capture actions

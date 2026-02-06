@@ -481,11 +481,41 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "visual_storytelling": {
+      "type": "visual-storytelling",
+      "settings": {
+        "title": "Our Philosophy",
+        "subtitle": "Clothes. Creativity. Inspiration."
+      },
+      "blocks": {
+        "story_1": {
+          "type": "story",
+          "settings": {
+            "tag": "Design",
+            "title": "Crafted for You",
+            "text": "<p>Every stitch is intentional. We blend modern aesthetics with timeless comfort to create pieces you'll love forever.</p>"
+          }
+        },
+        "story_2": {
+          "type": "story",
+          "settings": {
+            "tag": "Community",
+            "title": "Join the Movement",
+            "text": "<p>More than a brand, we are a collective of dreamers and creators. Wear your passion.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "story_1",
+        "story_2"
+      ]
     }
   },
   "order": [
     "hero_carousel",
     "product_list_X8Q7bi",
-    "section_RhpYRt"
+    "section_RhpYRt",
+    "visual_storytelling"
   ]
 }

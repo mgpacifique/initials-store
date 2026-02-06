@@ -1,0 +1,267 @@
+<div class="visual-storytelling-section page-width">
+  <div class="section-header text-center">
+    {% if section.settings.title != blank %}
+      <h2 class="section-heading">{{ section.settings.title }}</h2>
+    {% endif %}
+    {% if section.settings.subtitle != blank %}
+      <p class="section-subheading">{{ section.settings.subtitle }}</p>
+    {% endif %}
+  </div>
+
+  <div class="story-grid">
+    {% for block in section.blocks %}
+      <div class="story-item {% cycle 'odd', 'even' %}">
+        <div class="story-image-wrapper">
+          {% if block.settings.image != blank %}
+            <img
+              src="{{ block.settings.image | image_url: width: 800 }}"
+              alt="{{ block.settings.title }}"
+              width="800"
+              height="600"
+              loading="lazy"
+              class="story-image"
+            >
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'story-image placeholder' }}
+          {% endif %}
+        </div>
+        <div class="story-content">
+          <span class="story-tag">{{ block.settings.tag }}</span>
+          <h3 class="story-title">{{ block.settings.title }}</h3>
+          <div class="story-text">{{ block.settings.text }}</div>
+          {% if block.settings.link_label != blank %}
+            <a href="{{ block.settings.link }}" class="story-link button button--secondary">
+              {{ block.settings.link_label }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .visual-storytelling-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .section-header {
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+
+  .section-heading {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading-family);
+  }
+
+  .section-subheading {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .story-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+
+  .story-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media (min-width: 750px) {
+    .story-item {
+      flex-direction: row;
+      gap: 5rem;
+    }
+
+    .story-item.even {
+      flex-direction: row-reverse;
+    }
+
+    .story-image-wrapper,
+    .story-content {
+      flex: 1;
+    }
+  }
+
+  .story-image-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px; /* Optional rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .story-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+  }
+
+  .story-image-wrapper:hover .story-image {
+    transform: scale(1.05);
+  }
+
+  .story-content {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  @media (min-width: 750px) {
+    .story-content {
+      text-align: left;
+    }
+  }
+
+  .story-tag {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+  }
+
+  .story-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-heading-family);
+    line-height: 1.2;
+  }
+
+  .story-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+  }
+
+  /* Animation on scroll (Simple Fade Up) */
+  .story-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .story-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.2,
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Only animate once
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.story-item').forEach((item) => {
+      observer.observe(item);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Visual Storytelling",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Heading",
+      "default": "Our Philosophy"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "default": "Clothes. Creativity. Inspiration."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "story",
+      "name": "Story Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tagline",
+          "default": "Inspiration"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Bold & Authentic"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description",
+          "default": "<p>We believe in clothes that speak louder than words. Each piece is designed to tell a story of creativity and bold expression.</p>"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link Label",
+          "default": "Read Our Story"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Visual Storytelling",
+      "blocks": [
+        {
+          "type": "story",
+          "settings": {
+            "tag": "Design",
+            "title": "Crafted for You",
+            "text": "<p>Every stitch is intentional. We blend modern aesthetics with timeless comfort to create pieces you'll love forever.</p>"
+          }
+        },
+        {
+          "type": "story",
+          "settings": {
+            "tag": "Community",
+            "title": "Join the Movement",
+            "text": "<p>More than a brand, we are a collective of dreamers and creators. Wear your passion.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
