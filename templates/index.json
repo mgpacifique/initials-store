@@ -331,7 +331,7 @@
           "type": "video",
           "name": "t:names.video",
           "settings": {
-            "source": "url",
+            "source": "uploaded",
             "video_url": "",
             "video_autoplay": false,
             "video_loop": true,
@@ -484,17 +484,15 @@
     },
     "visual_storytelling": {
       "type": "visual-storytelling",
-      "settings": {
-        "title": "Our Philosophy",
-        "subtitle": "Clothes. Creativity. Inspiration."
-      },
       "blocks": {
         "story_1": {
           "type": "story",
           "settings": {
             "tag": "Design",
             "title": "Crafted for You",
-            "text": "<p>Every stitch is intentional. We blend modern aesthetics with timeless comfort to create pieces you'll love forever.</p>"
+            "text": "<p>Every stitch is intentional. We blend modern aesthetics with timeless comfort to create pieces you'll love forever.</p>",
+            "link_label": "Read Our Story",
+            "link": ""
           }
         },
         "story_2": {
@@ -502,14 +500,20 @@
           "settings": {
             "tag": "Community",
             "title": "Join the Movement",
-            "text": "<p>More than a brand, we are a collective of dreamers and creators. Wear your passion.</p>"
+            "text": "<p>More than a brand, we are a collective of dreamers and creators. Wear your passion.</p>",
+            "link_label": "Read Our Story",
+            "link": ""
           }
         }
       },
       "block_order": [
         "story_1",
         "story_2"
-      ]
+      ],
+      "settings": {
+        "title": "Our Philosophy",
+        "subtitle": "Clothes. Creativity. Inspiration."
+      }
     }
   },
   "order": [
