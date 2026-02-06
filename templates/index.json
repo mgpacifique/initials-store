@@ -488,6 +488,7 @@
         "story_1": {
           "type": "story",
           "settings": {
+            "image_filename": "crafted-for-you.jpg",
             "tag": "Design",
             "title": "Crafted for You",
             "text": "<p>Every stitch is intentional. We blend modern aesthetics with timeless comfort to create pieces you'll love forever.</p>",
@@ -498,6 +499,7 @@
         "story_2": {
           "type": "story",
           "settings": {
+            "image_filename": "join-the-movement.jpg",
             "tag": "Community",
             "title": "Join the Movement",
             "text": "<p>More than a brand, we are a collective of dreamers and creators. Wear your passion.</p>",

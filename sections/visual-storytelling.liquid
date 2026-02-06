@@ -12,12 +12,21 @@
     {% for block in section.blocks %}
       <div class="story-item {% cycle 'odd', 'even' %}">
         <div class="story-image-wrapper">
-          {% if block.settings.image != blank %}
+          {% if block.settings.image_filename != blank %}
             <img
-              src="{{ block.settings.image | image_url: width: 800 }}"
+              src="{{ block.settings.image_filename | asset_url }}"
               alt="{{ block.settings.title }}"
-              width="800"
-              height="600"
+              width="700"
+              height="500"
+              loading="lazy"
+              class="story-image"
+            >
+          {% elsif block.settings.image != blank %}
+            <img
+              src="{{ block.settings.image | image_url: width: 700 }}"
+              alt="{{ block.settings.title }}"
+              width="700"
+              height="500"
               loading="lazy"
               class="story-image"
             >
@@ -80,7 +89,7 @@
   @media (min-width: 750px) {
     .story-item {
       flex-direction: row;
-      gap: 5rem;
+      gap: 10rem; /* Increased gap to push text to the right */
     }
 
     .story-item.even {
@@ -95,6 +104,8 @@
 
   .story-image-wrapper {
     width: 100%;
+    max-width: 500px; /* Constrain the width */
+    margin: 0 auto; /* Center if it's smaller than container */
     overflow: hidden;
     border-radius: 8px; /* Optional rounded corners */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -207,6 +218,12 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_filename",
+          "label": "Local Image Filename (In Assets)",
+          "info": "e.g. crafted.jpg"
         },
         {
           "type": "text",
