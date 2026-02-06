@@ -17,10 +17,10 @@
         "button_link": "shopify://collections/all"
       }
     },
-    "collection_list_HxL7HG": {
+    "collection_list_ULn6we": {
       "type": "collection-list",
       "blocks": {
-        "group_HUnwng": {
+        "group_gUbWki": {
           "type": "group",
           "name": "t:names.header",
           "settings": {
@@ -60,7 +60,7 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "text_ngeKj3": {
+            "text_iktV4J": {
               "type": "text",
               "name": "t:names.text",
               "settings": {
@@ -88,7 +88,7 @@
             }
           },
           "block_order": [
-            "text_ngeKj3"
+            "text_iktV4J"
           ]
         },
         "static-collection-card": {
@@ -108,7 +108,7 @@
             "border_radius": 0
           },
           "blocks": {
-            "collection_title_VR7LwJ": {
+            "collection_title_f6zyHP": {
               "type": "collection-title",
               "name": "t:names.collection_title",
               "settings": {
@@ -138,8 +138,8 @@
               "name": "t:names.collection_card_image",
               "static": true,
               "settings": {
-                "image_ratio": "portrait",
-                "toggle_overlay": true,
+                "image_ratio": "adapt",
+                "toggle_overlay": false,
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
@@ -152,19 +152,24 @@
             }
           },
           "block_order": [
-            "collection_title_VR7LwJ"
+            "collection_title_f6zyHP"
           ]
         }
       },
       "block_order": [
-        "group_HUnwng"
+        "group_gUbWki"
       ],
       "name": "t:names.collections_grid",
       "settings": {
-        "collection_list": [],
+        "collection_list": [
+          "frontpage",
+          "graphic-tee",
+          "hoodies",
+          "you-should-have-stayed-home"
+        ],
         "layout_type": "grid",
         "carousel_on_mobile": false,
-        "columns": 3,
+        "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
         "columns_gap": 8,
@@ -183,6 +188,6 @@
   },
   "order": [
     "hero_carousel",
-    "collection_list_HxL7HG"
+    "collection_list_ULn6we"
   ]
 }
