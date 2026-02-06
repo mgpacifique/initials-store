@@ -64,30 +64,51 @@
   }
 
   /* Left Side */
+  /* Left Side */
   .hero-left-content {
-    flex: 0 0 30%; /* Fixed smaller width for text */
+    /* Mobile: Overlay on top of images */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 2rem;
-    position: relative;
-    z-index: 2;
-    background: #000;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 2rem 8rem 2rem;
+    z-index: 3;
+    background: transparent;
   }
 
   @media (min-width: 750px) {
     .hero-left-content {
+      /* Desktop: Split screen */
+      position: relative;
+      flex: 0 0 30%;
+      height: auto;
+      width: auto; /* Reset width to respect flex */
+      background: #000;
+      align-items: flex-start;
+      text-align: left;
       padding: 4rem;
-      /* padding-right: 0; */
     }
   }
 
   .hero-title {
-    font-size: 3rem;
+    font-size: 2rem;
     line-height: 1.1;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     color: #fff;
     font-family: var(--font-heading-family);
+  }
+
+  @media (min-width: 750px) {
+    .hero-title {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
   }
 
   .hero-button {
@@ -106,14 +127,29 @@
   }
 
   /* Right Side */
+  /* Right Side */
   .hero-right-visual {
-    flex: 1; /* Takes remaining space (approx 70%) */
-    position: relative;
+    /* Mobile: Full background */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
     background: #000;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+  }
+
+  @media (min-width: 750px) {
+    .hero-right-visual {
+      position: relative;
+      flex: 1;
+      width: auto; /* Reset width */
+      height: auto; /* Reset height */
+    }
   }
 
   .carousel-track {
@@ -141,15 +177,23 @@
   }
 
   /* Vignette Overlay */
+  /* Vignette Overlay */
   .vignette-overlay {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
-    width: 60%; /* Wider blend area */
-    background: linear-gradient(to right, #000 0%, rgba(0, 0, 0, 0.8) 20%, transparent 100%);
-    z-index: 2; /* Above images */
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Mobile: Simple dimming overlay */
+    z-index: 2; /* Above images, below text */
     pointer-events: none;
+  }
+
+  @media (min-width: 750px) {
+    .vignette-overlay {
+      width: 60%; /* Desktop: Gradient blend */
+      background: linear-gradient(to right, #000 0%, rgba(0, 0, 0, 0.8) 20%, transparent 100%);
+    }
   }
 
   /* Controls */
