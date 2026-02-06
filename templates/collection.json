@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "section": {
       "type": "section",
@@ -31,7 +32,7 @@
             "background_color": "#00000026",
             "corner_radius": 0,
             "padding-block-start": 100,
-            "padding-block-end": 0,
+            "padding-block-end": 60,
             "padding-inline-start": 40,
             "padding-inline-end": 0
           },
@@ -57,6 +58,7 @@
         "color_scheme": "scheme-5",
         "background_media": "image",
         "video_position": "cover",
+        "background_image": "shopify://shop_images/IMG_8599_JPG.jpg",
         "background_image_position": "cover",
         "border": "none",
         "border_width": 1,
@@ -67,7 +69,7 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 100,
-        "padding-block-end": 32
+        "padding-block-end": 100
       }
     },
     "main": {
@@ -86,7 +88,7 @@
             "enable_sorting": true,
             "enable_grid_density": false,
             "inherit_color_scheme": false,
-            "color_scheme": "scheme-4",
+            "color_scheme": "scheme-5",
             "padding-block-start": 8,
             "padding-block-end": 8,
             "padding-inline-start": 40,
@@ -133,7 +135,6 @@
               "type": "_product-card-group",
               "name": "t:names.group",
               "settings": {
-                "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "space-between",
@@ -161,6 +162,8 @@
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
                 "padding-block-start": 12,
                 "padding-block-end": 12,
                 "padding-inline-start": 12,
@@ -171,7 +174,6 @@
                   "type": "_product-card-group",
                   "name": "t:names.group",
                   "settings": {
-                    "open_in_new_tab": false,
                     "content_direction": "row",
                     "vertical_on_mobile": true,
                     "horizontal_alignment": "space-between",
@@ -199,6 +201,8 @@
                     "overlay_color": "#00000026",
                     "overlay_style": "solid",
                     "gradient_direction": "to top",
+                    "link": "",
+                    "open_in_new_tab": false,
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
@@ -263,7 +267,6 @@
                   "type": "_product-card-group",
                   "name": "t:names.group",
                   "settings": {
-                    "open_in_new_tab": false,
                     "content_direction": "column",
                     "vertical_on_mobile": true,
                     "horizontal_alignment": "flex-start",
@@ -291,6 +294,8 @@
                     "overlay_color": "#00000026",
                     "overlay_style": "solid",
                     "gradient_direction": "to top",
+                    "link": "",
+                    "open_in_new_tab": false,
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
@@ -345,6 +350,8 @@
         "layout_type": "grid",
         "product_card_size": "large",
         "mobile_product_card_size": "small",
+        "enable_infinite_scroll": true,
+        "products_per_page": 24,
         "product_grid_width": "full-width",
         "full_width_on_mobile": true,
         "columns_gap_horizontal": 1,
