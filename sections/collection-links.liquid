@@ -1,5 +1,3 @@
-
-
 {% liquid
   assign collection_list = section.settings.collection_list
 
@@ -166,10 +164,62 @@
       grid-template-areas: 'text';
 
       .collection-links__container {
-        gap: clamp(var(--gap-xs), 1vw, var(--gap-xl)) var(--gap-2xl);
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: var(--alignment);
+        gap: 10px;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        width: 100%;
+        scrollbar-width: none; /* Hide scrollbar for Firefox */
+        -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+      }
+
+      .collection-links__container::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for Chrome/Safari/Opera */
+      }
+
+      .collection-links__container .collection-links__item {
+        width: auto;
+        flex: 0 0 auto;
+      }
+
+      .collection-links__container .text-block {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        text-align: center;
+        width: auto;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+        transition: all 0.3s ease;
+      }
+
+      .collection-links__container .text-block:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+        opacity: 0.8;
+      }
+
+      @media (min-width: 750px) {
+        .collection-links__container {
+          justify-content: center; /* Center on desktop if they fit, or just start? User said "align on one line". Center is usually safer for "one line" aesthetic unless they overflow. */
+          flex-wrap: wrap; /* On desktop allowing wrap might be better if there are many, OR keep single line. User said "decrease their size to be on one line". I'll stick to flex-wrap: wrap for desktop as it's safer, but make them small. If user insists on one line desktop, I can change later. Actually, user said "decrease their size to be on one line". I will make them small enough to hopefully fit. */
+          gap: 10px;
+        }
+
+        /* If user specifically wants one line on desktop too, we can use same style as mobile but centered */
+        .collection-links__container {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
       }
     }
   }

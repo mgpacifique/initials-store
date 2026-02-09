@@ -88,6 +88,8 @@
         style="
           {%- render 'menu-font-styles', settings: block_settings, menu_type: 'drawer' %}
           {%- render 'submenu-font-styles', settings: block_settings %}
+          color: rgb(var(--color-foreground));
+          --color-foreground: {{ block_settings.color_scheme.settings.text.rgb }};
         "
       >
         <ul
