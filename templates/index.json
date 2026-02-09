@@ -42,6 +42,7 @@
             },
             "image": {
               "type": "_image",
+              "disabled": true,
               "static": true,
               "settings": {
                 "height": "medium",
