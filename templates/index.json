@@ -17,6 +17,7 @@
         "button_link": "shopify://collections/all"
       }
     },
+<<<<<<< HEAD
     "split_banner": {
       "type": "split-banner",
       "blocks": {
@@ -43,6 +44,8 @@
       ],
       "settings": {}
     },
+=======
+>>>>>>> 9a8c4dcaa60a3027a9abbb5aaa74af5cf4920161
     "section_ee7cCT": {
       "type": "section",
       "blocks": {
@@ -279,7 +282,10 @@
   },
   "order": [
     "hero_carousel",
+<<<<<<< HEAD
     "split_banner",
+=======
+>>>>>>> 9a8c4dcaa60a3027a9abbb5aaa74af5cf4920161
     "section_ee7cCT"
   ]
 }
