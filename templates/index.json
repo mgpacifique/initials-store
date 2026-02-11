@@ -345,35 +345,6 @@
         "padding-block-end": 0
       }
     },
-    "split_banner_dEBEyV": {
-      "type": "split-banner",
-      "blocks": {
-        "banner_cRm7CL": {
-          "type": "banner",
-          "settings": {
-            "image": "shopify://shop_images/616475679_18088245446511792_4100928147917834334_n.jpg",
-            "heading": "Banner Heading",
-            "button_label": "Shop Now",
-            "link": ""
-          }
-        },
-        "banner_efb46G": {
-          "type": "banner",
-          "settings": {
-            "image": "shopify://shop_images/619253572_18088539038511792_3884595486322512861_n.jpg",
-            "heading": "Banner Heading",
-            "button_label": "Shop Now",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "banner_cRm7CL",
-        "banner_efb46G"
-      ],
-      "name": "Split Banner",
-      "settings": {}
-    },
     "featured_blog_posts_jcWLYw": {
       "type": "featured-blog-posts",
       "blocks": {
@@ -520,7 +491,6 @@
   "order": [
     "hero_xg9bhn",
     "hero_DiRNMB",
-    "split_banner_dEBEyV",
     "featured_blog_posts_jcWLYw"
   ]
 }
