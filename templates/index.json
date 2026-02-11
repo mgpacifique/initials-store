@@ -205,8 +205,8 @@
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "flex-end",
         "gap": 16,
-        "section_width": "page-width",
-        "section_height": "large",
+        "section_width": "full-width",
+        "section_height": "full-screen",
         "section_height_custom": 50,
         "color_scheme": "scheme-5",
         "toggle_overlay": true,
@@ -215,67 +215,29 @@
         "gradient_direction": "to top",
         "blurred_reflection": false,
         "reflection_opacity": 75,
-        "padding-block-start": 40,
-        "padding-block-end": 40
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
-    "collection_links_i6g3y4": {
-      "type": "collection-links",
-      "blocks": {
-        "link": {
-          "type": "_collection-link",
-          "static": true,
-          "settings": {
-            "show_count": false
-          },
-          "blocks": {
-            "title": {
-              "type": "_inline-collection-title",
-              "name": "t:names.title",
-              "static": true,
-              "settings": {
-                "font": "var(--font-subheading--family)",
-                "weight": "",
-                "line_height": "tight",
-                "letter_spacing": "tight",
-                "case": "none"
-              },
-              "blocks": {}
-            },
-            "image": {
-              "type": "_image",
-              "disabled": true,
-              "static": true,
-              "settings": {
-                "height": "medium",
-                "ratio": "portrait",
-                "border_radius": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": []
-        }
-      },
-      "name": "t:names.collection_links_text",
+    "mosaic_grid_c3drWB": {
+      "type": "mosaic-grid",
+      "name": "Mosaic Grid",
       "settings": {
-        "collection_list": [],
-        "layout": "text",
-        "section_width": "page-width",
-        "alignment": "center",
-        "image_position": "right",
-        "color_scheme": "",
-        "padding-block-start": 7,
-        "padding-block-end": 40
-      }
-    },
-    "custom_hero_carousel_CfCayg": {
-      "type": "custom-hero-carousel",
-      "name": "Hero Carousel",
-      "settings": {
-        "heading": "Savor every. last. bite.",
-        "button_label": "Shop all →",
-        "button_link": ""
+        "image_left": "shopify://shop_images/583805650_18395823667132165_4130641240590473460_n_95fabcf3-59de-4960-9a91-7dc5c9df0a4a.jpg",
+        "title_left": "Left Title",
+        "link_left": "",
+        "image_mid_top": "shopify://shop_images/582152629_18085603585964289_4759068150641864890_n_0322b8e9-ba15-4704-a4bd-f0acc216b7c5.jpg",
+        "title_mid_top": "Middle Top",
+        "link_mid_top": "",
+        "image_mid_bottom": "shopify://shop_images/582105812_18199319050321020_483469055080721275_n.jpg",
+        "title_mid_bottom": "Middle Bottom",
+        "link_mid_bottom": "",
+        "image_right": "shopify://shop_images/582902661_18395822794132165_3583908336173895891_n.jpg",
+        "title_right": "Right Title",
+        "link_right": "",
+        "text_color": "#FFFFFF",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "split_banner_dEBEyV": {
@@ -448,22 +410,11 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
-    },
-    "mosaic_grid_new": {
-      "type": "mosaic-grid",
-      "settings": {
-        "title_left": "New Collection",
-        "title_mid_top": "Essentials",
-        "title_mid_bottom": "Accessories",
-        "title_right": "Limited Edition"
-      }
     }
   },
   "order": [
     "hero_xg9bhn",
-    "mosaic_grid_new",
-    "collection_links_i6g3y4",
-    "custom_hero_carousel_CfCayg",
+    "mosaic_grid_c3drWB",
     "split_banner_dEBEyV",
     "featured_blog_posts_jcWLYw"
   ]
