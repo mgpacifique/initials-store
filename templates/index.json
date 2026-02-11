@@ -448,6 +448,7 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+<<<<<<< HEAD
     },
     "mosaic_grid_new": {
       "type": "mosaic-grid",
@@ -457,11 +458,16 @@
         "title_mid_bottom": "Accessories",
         "title_right": "Limited Edition"
       }
+=======
+>>>>>>> e45508cce3dd0b3b63c72578808d52173b678ba5
     }
   },
   "order": [
     "hero_xg9bhn",
+<<<<<<< HEAD
     "mosaic_grid_new",
+=======
+>>>>>>> e45508cce3dd0b3b63c72578808d52173b678ba5
     "collection_links_i6g3y4",
     "custom_hero_carousel_CfCayg",
     "split_banner_dEBEyV",
