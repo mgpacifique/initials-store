@@ -92,32 +92,6 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "text_FMikyj": {
-                  "type": "text",
-                  "name": "t:names.heading",
-                  "settings": {
-                    "text": "<h2><em>Introducing</em></h2>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h6",
-                    "font": "var(--font-accent--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
                 "text_Ux89qQ": {
                   "type": "text",
                   "name": "t:names.heading",
@@ -125,7 +99,7 @@
                     "text": "<h1>New arrivals</h1>",
                     "width": "100%",
                     "max_width": "normal",
-                    "alignment": "left",
+                    "alignment": "center",
                     "type_preset": "h2",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
@@ -146,7 +120,6 @@
                 }
               },
               "block_order": [
-                "text_FMikyj",
                 "text_Ux89qQ"
               ]
             },
@@ -154,7 +127,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+                "text": "",
                 "width": "fit-content",
                 "max_width": "none",
                 "alignment": "left",
@@ -276,6 +249,32 @@
             "padding-inline-end": 0
           },
           "blocks": {
+            "text_4qq4iR": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h2>New arrivals</h2>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 18,
+                "padding-block-end": 0,
+                "padding-inline-start": 44,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "group_mD79Pk": {
               "type": "group",
               "name": "t:names.group",
@@ -319,6 +318,7 @@
             }
           },
           "block_order": [
+            "text_4qq4iR",
             "group_mD79Pk"
           ]
         }
@@ -344,7 +344,7 @@
         "vertical_alignment": "center",
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
+        "vertical_alignment_flex_direction_column": "space-between",
         "gap": 8,
         "section_width": "full-width",
         "section_height": "full-screen",
