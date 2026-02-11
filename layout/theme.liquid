@@ -124,5 +124,22 @@
     {% if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add-modal' %}
     {% endif %}
+    <style>
+      /* Robust selector for Mobile Carousel (hides on desktop) */
+      @media screen and (min-width: 750px) {
+        [id*='mobile_hero_carousel'],
+        #shopify-section-mobile_hero_carousel {
+          display: none !important;
+        }
+      }
+
+      /* Robust selector for Video Hero (hides on mobile) */
+      @media screen and (max-width: 749px) {
+        [id*='hero_xg9bhn'],
+        #shopify-section-hero_xg9bhn {
+          display: none !important;
+        }
+      }
+    </style>
   </body>
 </html>

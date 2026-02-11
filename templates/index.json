@@ -9,6 +9,14 @@
  */
 {
   "sections": {
+    "mobile_hero_carousel": {
+      "type": "custom-hero-carousel",
+      "settings": {
+        "heading": "Savor every. last. bite.",
+        "button_label": "Shop all →",
+        "button_link": "shopify://collections/all"
+      }
+    },
     "hero_xg9bhn": {
       "type": "hero",
       "blocks": {
@@ -543,6 +551,7 @@
     }
   },
   "order": [
+    "mobile_hero_carousel",
     "hero_xg9bhn",
     "divider_6gcjcj",
     "hero_DiRNMB",
