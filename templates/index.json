@@ -301,95 +301,11 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
-              "blocks": {
-                "text_Hh44NU": {
-                  "type": "text",
-                  "name": "t:names.heading",
-                  "settings": {
-                    "text": "<h2><em>Introducing</em></h2>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h6",
-                    "font": "var(--font-accent--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                },
-                "text_4tDXPY": {
-                  "type": "text",
-                  "name": "t:names.heading",
-                  "settings": {
-                    "text": "<h1>New arrivals</h1>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "left",
-                    "type_preset": "h2",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "text_Hh44NU",
-                "text_4tDXPY"
-              ]
-            },
-            "text_j49kce": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
-                "width": "fit-content",
-                "max_width": "none",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
               "blocks": {}
             }
           },
           "block_order": [
-            "group_mD79Pk",
-            "text_j49kce"
+            "group_mD79Pk"
           ]
         }
       },
@@ -427,27 +343,6 @@
         "reflection_opacity": 75,
         "padding-block-start": 0,
         "padding-block-end": 0
-      }
-    },
-    "mosaic_grid_c3drWB": {
-      "type": "mosaic-grid",
-      "name": "Mosaic Grid",
-      "settings": {
-        "image_left": "shopify://shop_images/583805650_18395823667132165_4130641240590473460_n_95fabcf3-59de-4960-9a91-7dc5c9df0a4a.jpg",
-        "title_left": "Left Title",
-        "link_left": "",
-        "image_mid_top": "shopify://shop_images/582152629_18085603585964289_4759068150641864890_n_0322b8e9-ba15-4704-a4bd-f0acc216b7c5.jpg",
-        "title_mid_top": "Middle Top",
-        "link_mid_top": "",
-        "image_mid_bottom": "shopify://shop_images/582105812_18199319050321020_483469055080721275_n.jpg",
-        "title_mid_bottom": "Middle Bottom",
-        "link_mid_bottom": "",
-        "image_right": "shopify://shop_images/582902661_18395822794132165_3583908336173895891_n.jpg",
-        "title_right": "Right Title",
-        "link_right": "",
-        "text_color": "#FFFFFF",
-        "padding_top": 0,
-        "padding_bottom": 0
       }
     },
     "split_banner_dEBEyV": {
@@ -625,7 +520,6 @@
   "order": [
     "hero_xg9bhn",
     "hero_DiRNMB",
-    "mosaic_grid_c3drWB",
     "split_banner_dEBEyV",
     "featured_blog_posts_jcWLYw"
   ]
