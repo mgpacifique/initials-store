@@ -1,0 +1,277 @@
+{% schema %}
+{
+  "name": "Mosaic Grid",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left Column"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_left",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title_left",
+      "label": "Title",
+      "default": "Left Title"
+    },
+    {
+      "type": "url",
+      "id": "link_left",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Middle Column (Top)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mid_top",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title_mid_top",
+      "label": "Title",
+      "default": "Middle Top"
+    },
+    {
+      "type": "url",
+      "id": "link_mid_top",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Middle Column (Bottom)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mid_bottom",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title_mid_bottom",
+      "label": "Title",
+      "default": "Middle Bottom"
+    },
+    {
+      "type": "url",
+      "id": "link_mid_bottom",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Right Column"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_right",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title_right",
+      "label": "Title",
+      "default": "Right Title"
+    },
+    {
+      "type": "url",
+      "id": "link_right",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Color Settings"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mosaic Grid"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="mosaic-grid section-{{ section.id }}">
+  <div class="page-width">
+    <div class="mosaic-grid__container">
+      {% comment %} Left Column (Tall) {% endcomment %}
+      <div class="mosaic-grid__item mosaic-grid__item--tall">
+        <a href="{{ section.settings.link_left }}" class="mosaic-grid__link">
+          {% if section.settings.image_left != blank %}
+            {{
+              section.settings.image_left
+              | image_url: width: 800
+              | image_tag: loading: 'lazy', class: 'mosaic-image'
+            }}
+          {% else %}
+            {{ 'collection-1' | placeholder_svg_tag: 'mosaic-image placeholder-svg' }}
+          {% endif %}
+          <div class="mosaic-grid__content">
+            <h3 class="mosaic-grid__title">{{ section.settings.title_left }}</h3>
+          </div>
+        </a>
+      </div>
+
+      {% comment %} Middle Column (Stacked) {% endcomment %}
+      <div class="mosaic-grid__column-middle">
+        <div class="mosaic-grid__item mosaic-grid__item--stacked">
+          <a href="{{ section.settings.link_mid_top }}" class="mosaic-grid__link">
+            {% if section.settings.image_mid_top != blank %}
+              {{
+                section.settings.image_mid_top
+                | image_url: width: 600
+                | image_tag: loading: 'lazy', class: 'mosaic-image'
+              }}
+            {% else %}
+              {{ 'product-1' | placeholder_svg_tag: 'mosaic-image placeholder-svg' }}
+            {% endif %}
+            <div class="mosaic-grid__content">
+              <h3 class="mosaic-grid__title">{{ section.settings.title_mid_top }}</h3>
+            </div>
+          </a>
+        </div>
+        <div class="mosaic-grid__item mosaic-grid__item--stacked">
+          <a href="{{ section.settings.link_mid_bottom }}" class="mosaic-grid__link">
+            {% if section.settings.image_mid_bottom != blank %}
+              {{
+                section.settings.image_mid_bottom
+                | image_url: width: 600
+                | image_tag: loading: 'lazy', class: 'mosaic-image'
+              }}
+            {% else %}
+              {{ 'product-2' | placeholder_svg_tag: 'mosaic-image placeholder-svg' }}
+            {% endif %}
+            <div class="mosaic-grid__content">
+              <h3 class="mosaic-grid__title">{{ section.settings.title_mid_bottom }}</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      {% comment %} Right Column (Tall) {% endcomment %}
+      <div class="mosaic-grid__item mosaic-grid__item--tall">
+        <a href="{{ section.settings.link_right }}" class="mosaic-grid__link">
+          {% if section.settings.image_right != blank %}
+            {{
+              section.settings.image_right
+              | image_url: width: 800
+              | image_tag: loading: 'lazy', class: 'mosaic-image'
+            }}
+          {% else %}
+            {{ 'collection-2' | placeholder_svg_tag: 'mosaic-image placeholder-svg' }}
+          {% endif %}
+          <div class="mosaic-grid__content">
+            <h3 class="mosaic-grid__title">{{ section.settings.title_right }}</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .mosaic-grid__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    height: 600px; /* Fixed height for desktop to ensure even layout */
+  }
+
+  .mosaic-grid__column-middle {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+  }
+
+  .mosaic-grid__item {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .mosaic-grid__item--stacked {
+    flex: 1; /* Each stacked item takes 50% height */
+  }
+
+  .mosaic-grid__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    color: {{ section.settings.text_color }};
+    text-decoration: none;
+  }
+
+  .mosaic-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .mosaic-grid__item:hover .mosaic-image {
+    transform: scale(1.05);
+  }
+
+  .mosaic-grid__content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .mosaic-grid__title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: inherit;
+  }
+
+  /* Overlay gradient for better text readability */
+  .mosaic-grid__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+    z-index: 1;
+  }
+
+  /* Mobile Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .mosaic-grid__container {
+      grid-template-columns: 1fr; /* Stack everything */
+      height: auto; /* Allow auto height based on content */
+      gap: 15px;
+    }
+
+    .mosaic-grid__item--tall {
+      height: 400px; /* Fixed height for tall items on mobile */
+    }
+
+    .mosaic-grid__column-middle {
+      height: auto;
+      gap: 15px;
+    }
+
+    .mosaic-grid__item--stacked {
+      height: 300px; /* Fixed height for stacked items on mobile */
+    }
+  }
+</style>
