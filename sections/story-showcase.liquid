@@ -1,0 +1,479 @@
+{%- comment -%}
+  Story Showcase Section
+  A horizontal row of portrait story panels, each with a background image,
+  a category title, and two CTA links (Shop Men / Shop Women).
+  Inspired by the Tommy Hilfiger editorial showcase design.
+{%- endcomment -%}
+
+{%- if section.settings.section_title != blank or section.settings.section_subtitle != blank -%}
+  <div class="story-showcase__header">
+    {%- if section.settings.section_title != blank -%}
+      <h2 class="story-showcase__section-title">{{ section.settings.section_title }}</h2>
+    {%- endif -%}
+    {%- if section.settings.section_subtitle != blank -%}
+      <p class="story-showcase__section-subtitle">{{ section.settings.section_subtitle }}</p>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+<div class="story-showcase">
+  <div class="story-showcase__track" id="story-showcase-track-{{ section.id }}">
+    {%- for block in section.blocks -%}
+      <div
+        class="story-showcase__panel"
+        {{ block.shopify_attributes }}
+      >
+        {%- comment -%} Background image {%- endcomment -%}
+        <div class="story-showcase__image-wrap">
+          {%- if block.settings.image != blank -%}
+            {{
+              block.settings.image
+              | image_url: width: 900
+              | image_tag:
+                loading: 'lazy',
+                class: 'story-showcase__image',
+                sizes: '(min-width: 990px) 25vw, (min-width: 750px) 33vw, 85vw',
+                widths: '400, 600, 900'
+            }}
+          {%- else -%}
+            {{ 'lifestyle-2' | placeholder_svg_tag: 'story-showcase__placeholder' }}
+          {%- endif -%}
+          <div class="story-showcase__overlay"></div>
+        </div>
+
+        {%- comment -%} Panel content {%- endcomment -%}
+        <div class="story-showcase__content">
+          {%- if block.settings.tag != blank -%}
+            <span class="story-showcase__tag">{{ block.settings.tag }}</span>
+          {%- endif -%}
+
+          {%- if block.settings.title != blank -%}
+            <h3 class="story-showcase__title">{{ block.settings.title }}</h3>
+          {%- endif -%}
+
+          {%- comment -%} Dual CTA links at the bottom {%- endcomment -%}
+          <div class="story-showcase__ctas">
+            {%- if block.settings.link_men != blank -%}
+              <a
+                href="{{ block.settings.link_men }}"
+                class="story-showcase__cta"
+              >
+                {{- block.settings.label_men | default: 'Shop Men' -}}
+              </a>
+            {%- endif -%}
+
+            {%- if block.settings.link_women != blank -%}
+              <a
+                href="{{ block.settings.link_women }}"
+                class="story-showcase__cta"
+              >
+                {{- block.settings.label_women | default: 'Shop Women' -}}
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+
+  {%- comment -%} Scroll arrows (visible on mobile/tablet) {%- endcomment -%}
+  {%- if section.blocks.size > 2 -%}
+    <button
+      class="story-showcase__arrow story-showcase__arrow--prev"
+      aria-label="Previous stories"
+      onclick="storyShowcaseScroll('{{ section.id }}', -1)"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button
+      class="story-showcase__arrow story-showcase__arrow--next"
+      aria-label="Next stories"
+      onclick="storyShowcaseScroll('{{ section.id }}', 1)"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  {%- endif -%}
+</div>
+
+<style>
+  /* ── Section wrapper ── */
+  #shopify-section-{{ section.id }} {
+    --showcase-panels: {{ section.blocks.size }};
+    --showcase-gap: 0px;
+    --showcase-aspect: {{ section.settings.image_ratio | default: '3 / 4' }};
+    --showcase-overlay-start: rgba(0,0,0,0);
+    --showcase-overlay-end: rgba(0,0,0,0.55);
+    --showcase-title-color: #fff;
+    --showcase-cta-bg: rgba(255,255,255,0.92);
+    --showcase-cta-color: #111;
+    --showcase-cta-hover-bg: #fff;
+    --showcase-radius: 0px;
+    padding: 0;
+  }
+
+  /* ── Optional section header ── */
+  .story-showcase__header {
+    padding: 3.5rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .story-showcase__section-title {
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.5rem;
+    color: var(--color-foreground);
+  }
+
+  .story-showcase__section-subtitle {
+    font-size: 1rem;
+    color: var(--color-foreground);
+    opacity: 0.65;
+    margin: 0;
+  }
+
+  /* ── Main showcase ── */
+  .story-showcase {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .story-showcase__track {
+    display: grid;
+    grid-template-columns: repeat({{ section.blocks.size }}, 1fr);
+    gap: var(--showcase-gap);
+    width: 100%;
+  }
+
+  /* ── Individual panel ── */
+  .story-showcase__panel {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: var(--showcase-aspect);
+    cursor: pointer;
+  }
+
+  /* ── Image ── */
+  .story-showcase__image-wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .story-showcase__image,
+  .story-showcase__placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: block;
+  }
+
+  .story-showcase__placeholder {
+    background: #e8e8e8;
+  }
+
+  .story-showcase__panel:hover .story-showcase__image {
+    transform: scale(1.04);
+  }
+
+  /* ── Gradient overlay ── */
+  .story-showcase__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 30%,
+      var(--showcase-overlay-end) 100%
+    );
+    transition: opacity 0.3s ease;
+  }
+
+  /* ── Content (title + CTAs) ── */
+  .story-showcase__content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem 1.25rem 1.75rem;
+    pointer-events: none; /* let individual <a> tags be clickable */
+    z-index: 2;
+  }
+
+  .story-showcase__tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+
+  .story-showcase__title {
+    font-size: clamp(1rem, 2vw, 1.45rem);
+    font-weight: 400;
+    color: var(--showcase-title-color);
+    margin: 0 0 1.25rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.25);
+    max-width: 80%;
+  }
+
+  /* ── Dual CTA links ── */
+  .story-showcase__ctas {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    pointer-events: all;
+  }
+
+  .story-showcase__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--showcase-cta-bg);
+    color: var(--showcase-cta-color);
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border-radius: 0;            /* Sharp corners like the reference */
+    transition: background 0.2s ease, color 0.2s ease;
+    border: none;
+    backdrop-filter: blur(6px);
+    white-space: nowrap;
+  }
+
+  .story-showcase__cta:hover {
+    background: var(--showcase-cta-hover-bg);
+    color: #000;
+  }
+
+  /* ── Arrow buttons (mobile scroll helpers) ── */
+  .story-showcase__arrow {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    transition: background 0.2s ease;
+  }
+
+  .story-showcase__arrow:hover {
+    background: #fff;
+  }
+
+  .story-showcase__arrow--prev { left: 12px; }
+  .story-showcase__arrow--next { right: 12px; }
+
+  /* ── Mobile: horizontal scroll ── */
+  @media screen and (max-width: 749px) {
+    .story-showcase__track {
+      grid-template-columns: repeat({{ section.blocks.size }}, 85vw);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .story-showcase__track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .story-showcase__panel {
+      scroll-snap-align: start;
+    }
+
+    .story-showcase__arrow {
+      display: flex;
+    }
+
+    .story-showcase__title {
+      font-size: 1.1rem;
+    }
+  }
+
+  /* ── Tablet: show 2 panels ── */
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    .story-showcase__track {
+      grid-template-columns: repeat({{ section.blocks.size }}, calc(50% - 1px));
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+
+    .story-showcase__track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .story-showcase__panel {
+      scroll-snap-align: start;
+    }
+
+    .story-showcase__arrow {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  function storyShowcaseScroll(sectionId, dir) {
+    var track = document.getElementById('story-showcase-track-' + sectionId);
+    if (!track) return;
+    var panelWidth = track.querySelector('.story-showcase__panel').offsetWidth;
+    track.scrollBy({ left: dir * panelWidth, behavior: 'smooth' });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Story Showcase",
+  "tag": "section",
+  "class": "story-showcase-section",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section title",
+      "default": "Our Stories"
+    },
+    {
+      "type": "text",
+      "id": "section_subtitle",
+      "label": "Section subtitle",
+      "placeholder": "Discover our latest collections"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        { "value": "3 / 4", "label": "Portrait (3:4)" },
+        { "value": "4 / 5", "label": "Tall portrait (4:5)" },
+        { "value": "1 / 1", "label": "Square" }
+      ],
+      "default": "3 / 4"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "story",
+      "name": "Story panel",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background image"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag / category label",
+          "placeholder": "e.g. New Collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Story title",
+          "default": "Story Title"
+        },
+        {
+          "type": "header",
+          "content": "Men's link"
+        },
+        {
+          "type": "text",
+          "id": "label_men",
+          "label": "Men's button label",
+          "default": "Shop Men"
+        },
+        {
+          "type": "url",
+          "id": "link_men",
+          "label": "Men's collection link"
+        },
+        {
+          "type": "header",
+          "content": "Women's link"
+        },
+        {
+          "type": "text",
+          "id": "label_women",
+          "label": "Women's button label",
+          "default": "Shop Women"
+        },
+        {
+          "type": "url",
+          "id": "link_women",
+          "label": "Women's collection link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Story Showcase",
+      "blocks": [
+        {
+          "type": "story",
+          "settings": {
+            "tag": "Essentials",
+            "title": "T-Shirts",
+            "label_men": "Shop Men",
+            "label_women": "Shop Women"
+          }
+        },
+        {
+          "type": "story",
+          "settings": {
+            "tag": "Stay Warm",
+            "title": "Hoodies",
+            "label_men": "Shop Men",
+            "label_women": "Shop Women"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
