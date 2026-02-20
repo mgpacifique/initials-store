@@ -191,20 +191,6 @@
         "padding-block-end": 0
       }
     },
-    "divider_6gcjcj": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "",
-        "section_width": "full-width",
-        "thickness": 1,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 16,
-        "padding-block-end": 16
-      }
-    },
     "hero_DiRNMB": {
       "type": "hero",
       "blocks": {
@@ -396,28 +382,12 @@
         "section_title": "Shop our best sellers",
         "section_subtitle": ""
       }
-    },
-    "divider_Exy7kQ": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "",
-        "section_width": "full-width",
-        "thickness": 1,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 16,
-        "padding-block-end": 16
-      }
     }
   },
   "order": [
     "mobile_hero_carousel",
     "hero_xg9bhn",
-    "divider_6gcjcj",
     "hero_DiRNMB",
-    "story_showcase_Qf9iFz",
-    "divider_Exy7kQ"
+    "story_showcase_Qf9iFz"
   ]
 }
