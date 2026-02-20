@@ -5077,3 +5077,72 @@ product-recommendations:has([data-has-recommendations='false']) {
   height: 100%;
   border-radius: 0;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   Tommy Hilfiger-style product card info area
+   ─ Clean, minimal text under the image
+   ═══════════════════════════════════════════════════════════ */
+
+/* Content area — tight padding, white bg, no border */
+.product-grid .product-card__content {
+  padding: 0.55rem 0.6rem 0.7rem !important;
+  border: none !important;
+  border-top: none !important;
+  border-radius: 0 !important;
+  gap: 0.15rem !important;
+  background: transparent;
+}
+
+/* Product title: small, regular weight, dark */
+.product-grid .product-card__content .text-block p,
+.product-grid .product-card__content .text-block a,
+.product-grid .product-card__content .contents.user-select-text p {
+  font-size: 0.78rem !important;
+  font-weight: 400 !important;
+  line-height: 1.35 !important;
+  margin: 0 !important;
+  color: var(--color-foreground) !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+/* Price row — flex so sale + compare sit side by side */
+.product-grid product-price,
+.product-grid .product-card__content product-price {
+  display: block;
+}
+
+.product-grid product-price [ref="priceContainer"] {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+/* Sale / current price */
+.product-grid product-price .price {
+  font-size: 0.78rem !important;
+  font-weight: 400 !important;
+  color: var(--color-foreground) !important;
+  letter-spacing: 0 !important;
+}
+
+/* Compare-at / original price — muted + strikethrough */
+.product-grid product-price .compare-at-price {
+  font-size: 0.72rem !important;
+  font-weight: 400 !important;
+  color: rgb(var(--color-foreground-rgb) / 0.45) !important;
+  text-decoration: line-through !important;
+  letter-spacing: 0 !important;
+}
+
+/* "New" / "Sale" badge — small pill */
+.product-grid .badge,
+.product-grid .product-badge {
+  font-size: 0.6rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  padding: 0.15rem 0.45rem !important;
+  border-radius: 2px !important;
+}
