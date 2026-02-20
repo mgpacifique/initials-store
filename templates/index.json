@@ -20,6 +20,26 @@
     "hero_xg9bhn": {
       "type": "hero",
       "blocks": {
+        "logo_yai6CT": {
+          "type": "logo",
+          "name": "t:names.logo",
+          "settings": {
+            "inverse": true,
+            "font": "heading",
+            "unit": "pixel",
+            "percent_width": 100,
+            "pixel_height": 48,
+            "custom_mobile_size": false,
+            "unit_mobile": "percent",
+            "percent_width_mobile": 100,
+            "pixel_height_mobile": 120,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "group_ChMxTR": {
           "type": "group",
           "name": "t:names.group",
@@ -99,37 +119,7 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
-              "blocks": {
-                "text_Ux89qQ": {
-                  "type": "text",
-                  "name": "t:names.heading",
-                  "settings": {
-                    "text": "<h1>New arrivals</h1>",
-                    "width": "100%",
-                    "max_width": "normal",
-                    "alignment": "center",
-                    "type_preset": "h2",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
-                    "line_height": "normal",
-                    "letter_spacing": "normal",
-                    "case": "none",
-                    "wrap": "pretty",
-                    "color": "var(--color-foreground)",
-                    "background": false,
-                    "background_color": "#00000026",
-                    "corner_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {}
-                }
-              },
-              "block_order": [
-                "text_Ux89qQ"
-              ]
+              "blocks": {}
             },
             "text_k9bwmB": {
               "type": "text",
@@ -165,6 +155,7 @@
         }
       },
       "block_order": [
+        "logo_yai6CT",
         "group_ChMxTR"
       ],
       "name": "t:names.hero_bottom_aligned",
