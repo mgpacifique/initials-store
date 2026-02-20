@@ -4949,3 +4949,131 @@ product-recommendations:has([data-has-recommendations='false']) {
     display: none !important;
   }
 }
+
+/* ============================================================
+   INITIALS STORE — Product Grid Redesign (Tommy Hilfiger style)
+   ============================================================ */
+
+/* ── 1. Force 4 columns, zero gap on desktop ── */
+@media screen and (min-width: 750px) {
+  .product-grid {
+    --product-grid-columns-desktop: repeat(4, 1fr) !important;
+    --product-grid-gap-desktop: 0px 0px !important;
+    --product-grid-gap: 0px !important;
+  }
+
+  /* Remove any outer page-margin padding from the grid wrapper */
+  .main-collection-grid {
+    padding: 0 !important;
+  }
+
+  /* Ensure the full-width grid container spans end-to-end */
+  .collection-wrapper--grid-full-width .main-collection-grid,
+  .collection-wrapper .main-collection-grid {
+    padding-inline: 0 !important;
+  }
+}
+
+/* Remove gap on mobile too (keep 2 columns courtesy of the theme) */
+.product-grid {
+  --product-grid-gap-mobile: 0px 0px !important;
+  --product-grid-gap: 0px !important;
+  gap: 0 !important;
+}
+
+/* Override the default grid-view gap variable as well */
+[product-grid-view='default'] .product-grid,
+.product-grid[product-grid-view='default'] {
+  --product-grid-gap: 0px !important;
+  gap: 0 !important;
+}
+
+/* ── 2. Remove item borders & card padding ── */
+.product-grid .product-grid__item {
+  border: none !important;
+}
+
+.product-grid .product-grid__card {
+  border-radius: 0 !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* ── 3. Portrait aspect ratio for images (4:5, like the reference) ── */
+.product-grid .card-gallery {
+  --gallery-aspect-ratio: 4 / 5;
+}
+
+.product-grid .product-media-container {
+  aspect-ratio: 4 / 5;
+}
+
+.product-grid .product-media img,
+.product-grid .product-media video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── 4. Hide the existing pill quick-add button ── */
+.product-grid .quick-add__button {
+  display: none !important;
+}
+
+/* ── 5. Center "Quick View" hover overlay ── */
+
+/* The quick-add wrapper covers the full card-gallery area */
+.product-grid .quick-add {
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The centered Quick View button */
+.product-grid .quick-add::after {
+  content: 'Quick View';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+  cursor: pointer;
+
+  /* Pill style matching the reference */
+  background: rgba(255, 255, 255, 0.95);
+  color: #111;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 50px;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+
+  /* Hidden by default, fade in on hover */
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+/* Show on product-card hover */
+.product-grid .product-grid__item:hover .quick-add::after,
+.product-grid product-card:is(:hover, :focus-within) .quick-add::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Keep real buttons accessible but invisible for screen-reader / JS functionality */
+.product-grid .quick-add__button--choose,
+.product-grid .quick-add__button--add {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
