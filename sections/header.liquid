@@ -1,5 +1,22 @@
 {% liquid
   assign header_menu_block = section.blocks | where: 'type', '_header-menu' | first
+
+  # Resolve drawer linklist robustly — handles both nil block and bare string returns
+  assign drawer_linklist = header_menu_block.settings.menu
+  if drawer_linklist.links == blank
+    for b in section.blocks
+      if b.type == '_header-menu'
+        assign menu_val = b.settings.menu
+        if menu_val.handle != blank
+          assign menu_handle = menu_val.handle
+        else
+          assign menu_handle = menu_val
+        endif
+        assign drawer_linklist = linklists[menu_handle]
+        break
+      endif
+    endfor
+  endif
   assign order = 'logo,menu,localization,search,drawer_search,actions'
 
   if shop.customer_accounts_enabled
@@ -51,7 +68,7 @@
   endcapture
 
   capture drawer_menu
-    render 'header-menu-renderer', block: header_menu_block, variant: 'mobile'
+    render 'header-menu-renderer', block: header_menu_block, drawer_linklist: drawer_linklist, variant: 'mobile'
   endcapture
 
   capture navigation_bar

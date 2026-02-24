@@ -22,6 +22,11 @@
     assign ratio = block_settings.featured_products_aspect_ratio
   endif
 
+  # Guaranteed linklist fallback — works even when block/block_settings are nil
+  if linklist.links == blank
+    assign linklist = linklists['main-menu']
+  endif
+
   ##
   # We only eager load heavy elements of the page when rendering this template
   # through the Section Rendering API.
@@ -70,8 +75,9 @@
       ref="menuDrawer"
       class="
         menu-drawer
-        color-{{ block_settings.color_scheme }}
+        color-{{ block_settings.color_scheme | default: section.settings.color_scheme_top | default: 'scheme-1' }}
       "
+      style="color: var(--color-foreground); background-color: var(--color-background);"
     >
       <button
         class="button close-button menu-drawer__close-button"
@@ -88,6 +94,9 @@
         style="
           {%- render 'menu-font-styles', settings: block_settings, menu_type: 'drawer' %}
           {%- render 'submenu-font-styles', settings: block_settings %}
+          --menu-top-level-font-color: var(--color-foreground);
+          --menu-child-font-color: var(--color-foreground);
+          --menu-parent-font-color: var(--color-foreground);
         "
       >
         <ul
@@ -555,6 +564,33 @@
                 {%- endif -%}
               </li>
             {%- endfor -%}
+          {% endif %}
+          {%- comment -%}
+            Guaranteed fallback: render directly from linklists if the above produced nothing.
+            This fires when both the block's linklist and the passed linklist are nil/empty.
+          {%- endcomment -%}
+          {% liquid
+            assign __fallback_needed = true
+            for __flink in linklist.links
+              assign __fallback_needed = false
+              break
+            endfor
+          %}
+          {% if __fallback_needed %}
+            {% for link in linklists['main-menu'].links %}
+              <li
+                class="menu-drawer__list-item menu-drawer__list-item--flat"
+                style="display:flex; min-height:54px; align-items:center;"
+              >
+                <a
+                  href="{{ link.url }}"
+                  class="menu-drawer__menu-item menu-drawer__menu-item--mainlist"
+                  style="display:flex; align-items:center; width:100%; padding:0 var(--padding-xl,24px); text-decoration:none; font-size:0.9rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-foreground,#111);"
+                >
+                  {{ link.title | escape }}
+                </a>
+              </li>
+            {% endfor %}
           {% endif %}
         </ul>
       </nav>
