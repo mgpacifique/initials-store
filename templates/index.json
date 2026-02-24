@@ -12,7 +12,7 @@
     "mobile_hero_carousel": {
       "type": "custom-hero-carousel",
       "settings": {
-        "heading": "authentic style",
+        "heading": "Wear Your Name",
         "button_label": "Shop all →",
         "button_link": "shopify://collections/all"
       }
