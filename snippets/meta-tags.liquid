@@ -13,7 +13,7 @@
 >
 <meta
   name="theme-color"
-  content=""
+  content="#0d0d0d"
 >
 
 {%- liquid
@@ -102,10 +102,13 @@
 >
 
 <title>
-  {{ page_title }}
-  {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-  {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-  {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+  {%- if request.page_type == 'index' -%}
+    INITIALS — New Season, Shop Now
+  {%- else -%}
+    INITIALS — {{ page_title }}
+    {%- if current_tags %} · {{ current_tags | join: ', ' }}{% endif -%}
+    {%- if current_page != 1 %} · Page {{ current_page }}{% endif -%}
+  {%- endif -%}
 </title>
 
 <link
