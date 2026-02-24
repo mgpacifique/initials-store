@@ -12,7 +12,7 @@
     "mobile_hero_carousel": {
       "type": "custom-hero-carousel",
       "settings": {
-        "heading": "Savor every. last. bite.",
+        "heading": "authentic style",
         "button_label": "Shop all →",
         "button_link": "shopify://collections/all"
       }
@@ -189,6 +189,20 @@
         "reflection_opacity": 75,
         "padding-block-start": 0,
         "padding-block-end": 0
+      }
+    },
+    "divider_Ap8LnQ": {
+      "type": "divider",
+      "name": "t:names.divider_section",
+      "settings": {
+        "color_scheme": "",
+        "section_width": "full-width",
+        "thickness": 1,
+        "corner_radius": "square",
+        "width_percent": 100,
+        "alignment_horizontal": "center",
+        "padding-block-start": 16,
+        "padding-block-end": 16
       }
     },
     "hero_DiRNMB": {
@@ -380,13 +394,19 @@
       "name": "Story Showcase",
       "settings": {
         "section_title": "Shop our best sellers",
-        "section_subtitle": ""
+        "section_subtitle": "",
+        "max_height": 480,
+        "gap": 8,
+        "outer_padding": 0,
+        "mobile_gap": 6,
+        "mobile_outer_padding": 12
       }
     }
   },
   "order": [
     "mobile_hero_carousel",
     "hero_xg9bhn",
+    "divider_Ap8LnQ",
     "hero_DiRNMB",
     "story_showcase_Qf9iFz"
   ]
