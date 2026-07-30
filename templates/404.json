@@ -6,8 +6,59 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
+    "story_showcase_dErY6U": {
+      "type": "story-showcase",
+      "blocks": {
+        "story_drz4d7": {
+          "type": "story",
+          "settings": {
+            "tag": "Essentials",
+            "title": "T-Shirts",
+            "label_men": "Shop Men",
+            "link_men": "",
+            "label_women": "Shop Women",
+            "link_women": ""
+          }
+        },
+        "story_GniRne": {
+          "type": "story",
+          "settings": {
+            "tag": "Stay Warm",
+            "title": "Hoodies",
+            "label_men": "Shop Men",
+            "link_men": "",
+            "label_women": "Shop Women",
+            "link_women": ""
+          }
+        }
+      },
+      "block_order": [
+        "story_drz4d7",
+        "story_GniRne"
+      ],
+      "name": "Story Showcase",
+      "settings": {
+        "section_title": "",
+        "section_subtitle": "",
+        "max_height": 480,
+        "gap": 8,
+        "outer_padding": 0,
+        "mobile_gap": 6,
+        "mobile_outer_padding": 12
+      }
+    },
+    "custom_hero_carousel_XqTwRf": {
+      "type": "custom-hero-carousel",
+      "name": "Hero Carousel",
+      "settings": {
+        "heading": "Savor every. last. bite.",
+        "button_label": "Shop all →",
+        "button_link": ""
+      }
+    },
     "main": {
       "type": "main-404",
       "blocks": {
@@ -171,7 +222,6 @@
               "type": "_product-card-group",
               "name": "t:names.group",
               "settings": {
-                "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "space-between",
@@ -199,6 +249,8 @@
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
                 "padding-block-start": 12,
                 "padding-block-end": 12,
                 "padding-inline-start": 12,
@@ -209,7 +261,6 @@
                   "type": "_product-card-group",
                   "name": "t:names.group",
                   "settings": {
-                    "open_in_new_tab": false,
                     "content_direction": "row",
                     "vertical_on_mobile": true,
                     "horizontal_alignment": "space-between",
@@ -237,6 +288,8 @@
                     "overlay_color": "#00000026",
                     "overlay_style": "solid",
                     "gradient_direction": "to top",
+                    "link": "",
+                    "open_in_new_tab": false,
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
@@ -301,7 +354,6 @@
                   "type": "_product-card-group",
                   "name": "t:names.group",
                   "settings": {
-                    "open_in_new_tab": false,
                     "content_direction": "column",
                     "vertical_on_mobile": true,
                     "horizontal_alignment": "flex-start",
@@ -329,6 +381,8 @@
                     "overlay_color": "#00000026",
                     "overlay_style": "solid",
                     "gradient_direction": "to top",
+                    "link": "",
+                    "open_in_new_tab": false,
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
@@ -402,6 +456,8 @@
     }
   },
   "order": [
+    "story_showcase_dErY6U",
+    "custom_hero_carousel_XqTwRf",
     "main",
     "product_list_dFVKeV"
   ]
