@@ -69,9 +69,7 @@
         "overlay_style": "solid",
         "gradient_direction": "to top",
         "padding-block-start": 30,
-        "padding-block-end": 30,
-        "padding_block_start": 80,
-        "padding_block_end": 80
+        "padding-block-end": 30
       }
     },
     "main": {
