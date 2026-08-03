@@ -1,0 +1,82 @@
+/* TOMMY HILFIGER COLLECTION PAGE OVERRIDES */
+
+/* 1. Filter Pills */
+.facets__summary {
+  padding: 0;
+}
+.facets__summary > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: transparent;
+  color: #000;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.facets__summary:hover > span {
+  border-color: #000;
+}
+/* Hide default caret in summary if using span wrapper, or target the wrapper */
+.facets__summary .facets__status-wrapper {
+  margin-left: auto;
+}
+
+/* 2. Hide "All Filters" icon layout if necessary */
+/* Depending on exact DOM structure, we might need to hide some default filter headers */
+
+/* 3. Product Grid (4 columns on Desktop) */
+@media screen and (min-width: 990px) {
+  .product-grid-container .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 2px !important; /* Tommy uses very tight gaps with grey backgrounds */
+  }
+}
+
+/* 4. Product Card Styling */
+.product-grid__item,
+.resource-list__item {
+  position: relative;
+}
+
+/* Light grey background for the image wrapper */
+.product-grid__item .media,
+.resource-list__item .media {
+  background-color: #f4f4f4 !important;
+}
+
+/* "New" Badge */
+/* Some themes use .card__badge or similar. We will force any badge to bottom-left */
+.product-grid__item .badge,
+.resource-list__item .badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+/* Tighten up title and price */
+.product-grid__item .product-title,
+.resource-list__item .product-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+.product-grid__item product-price,
+.resource-list__item product-price {
+  font-size: 0.95rem;
+  margin-top: 0.2rem;
+}
