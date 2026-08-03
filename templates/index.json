@@ -26,9 +26,9 @@
             "tag": "Essentials",
             "title": "T-Shirts",
             "label_men": "Shop Men",
-            "link_men": "shopify://products/t-shirts",
+            "link_men": "shopify://collections/mens",
             "label_women": "Shop Women",
-            "link_women": "shopify://products/cropped-t-shirts"
+            "link_women": "shopify://collections/womens"
           }
         },
         "story_H4nXDJ": {
@@ -37,9 +37,9 @@
             "tag": "Stay Warm",
             "title": "Hoodies",
             "label_men": "Shop Men",
-            "link_men": "shopify://products/reversible-hoodie",
+            "link_men": "shopify://collections/mens",
             "label_women": "Shop Women",
-            "link_women": "shopify://products/cropped-zipped-hoodie"
+            "link_women": "shopify://collections/womens"
           }
         }
       },
@@ -74,31 +74,31 @@
     },
     "split_hero_overlay_1": {
       "type": "split-hero-overlay",
-      "settings": {
-        "image_left": "shopify://shop_images/IMG-20260723-WA0005.jpg",
-        "image_right": "shopify://shop_images/WhatsApp_Image_2026-07-25_at_11.51.37_AM.jpg",
-        "heading": "Find Your Perfect Fit"
-      },
       "blocks": {
         "button_1": {
           "type": "button",
           "settings": {
             "button_label": "Shop Men's",
-            "button_link": "shopify://collections/all"
+            "button_link": "shopify://collections/mens"
           }
         },
         "button_2": {
           "type": "button",
           "settings": {
             "button_label": "Shop Women's",
-            "button_link": "shopify://collections/all"
+            "button_link": "shopify://collections/womens"
           }
         }
       },
       "block_order": [
         "button_1",
         "button_2"
-      ]
+      ],
+      "settings": {
+        "image_left": "shopify://shop_images/IMG-20260723-WA0005.jpg",
+        "image_right": "shopify://shop_images/WhatsApp_Image_2026-07-25_at_11.51.37_AM.jpg",
+        "heading": "Find Your Perfect Fit"
+      }
     }
   },
   "order": [
