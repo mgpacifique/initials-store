@@ -4937,18 +4937,7 @@ product-recommendations:has([data-has-recommendations='false']) {
   }
 }
 
-/* Mobile Hero Visibility */
-@media screen and (min-width: 750px) {
-  #shopify-section-mobile_hero_carousel {
-    display: none !important;
-  }
-}
-
-@media screen and (max-width: 749px) {
-  #shopify-section-hero_xg9bhn {
-    display: none !important;
-  }
-}
+/* Mobile Hero Visibility Removed for Unified Section */
 
 /* ============================================================
    INITIALS STORE — Product Grid Redesign (Tommy Hilfiger style)
